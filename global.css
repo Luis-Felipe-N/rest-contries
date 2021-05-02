@@ -1,0 +1,33 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+/* CORES */
+
+:root {
+    --color-dark-blue: hsl(207, 26%, 17%);
+    --color-very-dark-blue: hsl(209, 23%, 22%);
+    --color-black: hsl(200, 15%, 8%);
+    --color-gray: hsl(0, 0%, 52%);
+    --color-ligth-gray: hsl(0, 0%, 98%);
+    --color-white: hsl(0, 0%, 100%);
+
+    --box-shadow: 0px 0px 4px 2px rgba(0, 0, 0, 0.15);
+}
+
+:root.light-mode {
+    --color-dark-blue: hsl(0, 0%, 100%);
+    --color-very-dark-blue: hsl(0, 0%, 98%);
+    --color-black: hsl(200, 15%, 8%);
+    --color-gray: hsl(0, 0%, 52%);
+    --color-ligth-gray: hsl(207, 26%, 17%);
+    --color-white: hsl(209, 23%, 22%);
+}
+
+body {
+    background-color: var(--color-dark-blue);
+}
+

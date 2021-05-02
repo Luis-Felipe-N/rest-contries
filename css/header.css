@@ -1,0 +1,24 @@
+#cabecalho {
+    box-shadow: var(--box-shadow);
+    padding: 1.2rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--color-very-dark-blue);
+    color: var(--color-white);
+}
+
+.logo > h1 {
+    font-size: 1.4rem;
+}
+
+.btn-dark-mode{
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: .625rem;
+}
+
+.text__dark-mode {
+    font-weight: 800;
+}

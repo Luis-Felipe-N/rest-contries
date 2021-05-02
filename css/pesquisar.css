@@ -1,0 +1,108 @@
+.campo-pesquisa {
+    margin: 2rem 0;
+    padding:0 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* z-index: 3; */
+    gap: 1rem;
+}
+
+.container-pesquisa  {
+    position: relative;
+    box-shadow: var(--box-shadow);
+    max-width: 25rem;
+    width: 100%;
+}
+.input-pesquisar-pais {
+    width: 100%;
+    background-color: var(--color-very-dark-blue);
+    border: none;
+    padding: .9rem 3.5rem;
+    border-radius: .2rem;
+    color: var(--color-white);
+}
+
+.input-pesquisar-pais::placeholder {
+    color: var(--color-white);
+    font-weight: 600;
+}
+
+.btn-pesquisar {
+    cursor: pointer;
+    position: absolute;
+    z-index: 2;
+    left: 1rem;
+    transform: translateY(50%);
+    color: var(--color-white);
+}
+
+/* Fitrar paises */
+
+.container-filtro {
+    cursor: pointer;
+    box-shadow: var(--box-shadow);
+    background-color: var(--color-very-dark-blue);
+    color: var(--color-white);
+    padding: .9rem 1rem;
+    font-weight: 600;
+    border-radius: .2rem;
+    position: relative;
+}
+
+
+.header-filtro {
+    display: flex;
+    align-items: flex-start;
+    gap: .5rem;
+    z-index: 999;
+}
+
+
+.container-paises {
+    position: absolute;
+    left: 0;
+    top: 55px;
+    background-color: var(--color-very-dark-blue);
+    width: 100%;
+    display: none;
+}
+
+.container-paises.show {
+    display: block;
+}
+
+.continentes {
+    border-radius: .3rem;
+    box-shadow: var(--box-shadow);
+    list-style: none;
+}
+
+.continentes li {
+    padding: .4rem 1rem;
+}
+
+.continentes li:hover {
+    background-color: var(--color-dark-blue);
+}
+
+.animeTop {
+    animation: animeTop .4s;
+}
+
+
+@keyframes animeTop {
+    from {
+        top: 40px;
+    }
+    to {
+        top: 55px;
+    }
+}
+
+@media (max-width: 750px) {
+    .campo-pesquisa {
+        flex-wrap: wrap;
+    }
+}
+
