@@ -9,7 +9,6 @@ const btnBack = document.querySelector('.btn-back')
 const getCoutries = async(url='https://restcountries.eu/rest/v2/all') => {
     const dados = await fetch(url)
     const data =  await dados.json()
-    console.log(data)
     if (data.length) {
         let listaPaises = []
         for(let pais of data) {
@@ -40,8 +39,11 @@ const getCountry = country =>  {
     getCoutries(`https://restcountries.eu/rest/v2/name/${country}?fullText=true`).then(data => buildCardDetails(data))
 }
 
+const capitalize = text => text.replace(text[0], text[0].toUpperCase())
+
 function printCountries() {
-    let valueSearch = this.value.trim()
+    let valueSearch = capitalize(this.value.toLowerCase())
+    console.log(valueSearch)
     getCoutries().then(data =>{
         if (valueSearch === '') {
             buildCards(data)
@@ -172,6 +174,8 @@ function buildCardDetails(country) {
     `
     containerCardsDetails.appendChild(contentCardsDetails)
 }
+
+
 
 pesquisarPais.addEventListener('keyup', printCountries);
 
