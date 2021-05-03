@@ -23,38 +23,43 @@
         <div data-btn="dark-mode" class="btn-dark-mode"><span class="icon__dark-mode"><i class="fas fa-moon"></i></span><span class="text__dark-mode">Dark Mode</span></div>
     </header>
 
-    <div class="campo-pesquisa">
-        <div class="container-pesquisa">
-            <input data-input="pesquisar-pais" id="pesquisar-pais" class="input-pesquisar-pais" type="text" placeholder="Pesquise por um país..">
-            <label class="btn-pesquisar" for="pesquisar-pais"><i class="fas fa-search"></i></label>
-        </div>
-        <div data-select="filtro-paises" class="container-filtro">
-           <div class="header-filtro">
-                <span>Filtrar por continentes</span>
-                <i class="fas fa-sort-down"></i>
-           </div>
-            <div data-drop="container-paises" class="container-paises">
-                <ul data-continentes="lista-continentes" class="continentes">
-                    <li value="africa">Africa</li>
-                    <li value="americas">America</li>
-                    <li value="asia">Asia</li>
-                    <li value="europe">Europa</li>
-                    <li value="oceania">Oceania</li>
-                </ul>
+    <section data-page="cards">
+        <div class="campo-pesquisa">
+            <div class="container-pesquisa">
+                <input data-input="pesquisar-pais" id="pesquisar-pais" class="input-pesquisar-pais" type="text" placeholder="Pesquise por um país..">
+                <label class="btn-pesquisar" for="pesquisar-pais"><i class="fas fa-search"></i></label>
+            </div>
+            <div data-select="filtro-paises" class="container-filtro">
+               <div class="header-filtro">
+                    <span>Filtrar por continentes</span>
+                    <i class="fas fa-sort-down"></i>
+               </div>
+                <div data-drop="container-paises" class="container-paises">
+                    <ul data-continentes="lista-continentes" class="continentes">
+                        <li value="africa">Africa</li>
+                        <li value="americas">America</li>
+                        <li value="asia">Asia</li>
+                        <li value="europe">Europa</li>
+                        <li value="oceania">Oceania</li>
+                    </ul>
+                </div>
             </div>
         </div>
-    </div>
-
-    <section id="container-paises">
-        <div data-container="cards" class="container-cards">
-           
-        </div>
+    
+        <section id="container-paises">
+            <div data-container="cards" class="container-cards">
+               
+            </div>
+        </section>    
     </section>
 
-    <section data-container="card-details" id="container-details-card"   style="display: none;">
-        <button class="btn btn-back"><i class="fas fa-arrow-left"></i> Back</button>
-        
+
+    <section data-page="details" id="container-details-card" style="display: none;">
+        <button data-btn="btn-back" class="btn btn-back"><i class="fas fa-arrow-left"></i> Back</button>
+        <section data-container="card-details" >
+        </section>
     </section>
+   
 
     <script src="https://kit.fontawesome.com/73b3f70564.js" crossorigin="anonymous"></script>
     <script src="/js/campo-pesquisa.js"></script>
@@ -62,24 +67,3 @@
     <script src="/js/script.js"></script>
 </body>
 </html>
-
-<!-- 
-<div class="card">
-    <div class="card-img">
-        <img src="https://restcountries.eu/data/bra.svg" alt="Imagem de algu  pais">
-    </div>
-    <div class="card-content">
-        <h1>Brasil</h1>
-        <div class="info-pais">
-            <span>População:</span> <span>206.000.00</span>
-        </div>
-
-        <div class="info-pais">
-            <span>Região:</span> <span>Americas</span>
-        </div>
-
-        <div class="info-pais">
-            <span>Capital:</span> <span>Brasilia</span>
-        </div>
-    </div>
-</div> -->

@@ -2,12 +2,6 @@
     padding: 5%;
 }
 
-.border-countries {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: .5rem;
-}
 
 .border-countries > span {
     font-weight: 600;
@@ -46,13 +40,17 @@
 }
 
 
-.containerCardsDetails {
+.wrapper-details-card {
     margin-top: 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 3rem ;
     flex-wrap: wrap;
+}
+
+.img-details-card {
+    max-width: 30rem;
 }
 
 .img-details-card img {
@@ -90,6 +88,13 @@
 
 .content-details span:last-child  {
     color: var(--color-ligth-gray);
+}
+
+.border-countries {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: .5rem;
 }
 
 @media (max-width: 1140px) {

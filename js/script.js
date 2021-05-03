@@ -1,12 +1,15 @@
+const pageCards = document.querySelector('[data-page="cards"]')
+const pageDetails = document.querySelector('[data-page="details"]')
 let pesquisarPais = document.querySelector('[data-input="pesquisar-pais"]')
 const continents = document.querySelectorAll('[data-continentes="lista-continentes"] li')
 const containerCards = document.querySelector('[data-container="cards"]')
 const containerCardsDetails = document.querySelector('[data-container="card-details"]')
 const btnBack = document.querySelector('.btn-back')
 
-const getCoutries = async(url='https://restcountries.eu/rest/v2/region/oceania') => {
+const getCoutries = async(url='https://restcountries.eu/rest/v2/all') => {
     const dados = await fetch(url)
     const data =  await dados.json()
+    console.log(data)
     if (data.length) {
         let listaPaises = []
         for(let pais of data) {
@@ -30,7 +33,7 @@ const getCoutries = async(url='https://restcountries.eu/rest/v2/region/oceania')
     } else {
         return data
     }
-    // console.log(listaPaises)
+
 }
 
 const getCountry = country =>  {
@@ -64,7 +67,7 @@ function newElement(tagName, className=false) {
 }
 
 function buildCards(paises) {
-    document.querySelector('[data-container="cards"]').innerHTML = ''
+    containerCards.innerHTML = ''
 
     for(i = 0; i < paises.length; i++){
         let card =  newElement('div', 'card')
@@ -106,20 +109,19 @@ function buildCards(paises) {
         card.appendChild(cardContent)
         containerCards.appendChild(card)
     }
-    containerCards.querySelectorAll('.card').forEach((card, index) => {
-        card.addEventListener('click', (e) => {
-            console.log(card)
+    containerCards.querySelectorAll('.card').forEach(card => {
+        card.addEventListener('click', () => {
             getCountry(card.getAttribute('value'))
         })
     })
 }
 
 function buildCardDetails(country) {
-    // console.log(country[0][0].name)
-    containerCards.style.display = 'none'
-    containerCardsDetails.style.display = 'block'
-    containerCardsDetails.innerHTML = ''
+    pageCards.style.display = 'none'
+    pageDetails.style.display = 'block'
     let contentCardsDetails = newElement('div', 'containerCardsDetails')
+    containerCardsDetails.innerHTML = ''
+
     contentCardsDetails.innerHTML = `
     <div class="wrapper-details-card">
         <div class="img-details-card">
@@ -135,7 +137,7 @@ function buildCardDetails(country) {
                     </div>
                     <div class="info-details">
                         <span>População: </span>
-                        <span>${country[0].population}</span>
+                        <span>${country[0].population.toLocaleString('pt-BR')}</span>
                     </div>
                     <div class="info-details">
                         <span>Region: </span>
@@ -161,15 +163,8 @@ function buildCardDetails(country) {
                     </div>
                     <div class="info-details">
                         <span>Languages</span>
-                        <span>${country[0].languages}</span>
+                        <span>${country[0].languages.name}</span>
                     </div>
-                </div>
-            </div>
-            <div class="border-countries">
-                <span class="weight-600">Border Countries:</span>
-                <div class="btns-countries">
-                    <button class="btn btn-coutries">${country[0].borderCountries}</button>
-
                 </div>
             </div>
         </div>
@@ -187,6 +182,6 @@ continents.forEach(continent => {
 window.onload = getCoutries().then(data => buildCards(data))
 
 btnBack.addEventListener('click', () => {
-    containerCards.style.display = 'flex'
-    containerCardsDetails.style.display = 'none'
+    pageCards.style.display = 'block'
+    pageDetails.style.display = 'none'
 })
